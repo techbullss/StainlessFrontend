@@ -1,7 +1,8 @@
 "use client"
 
+
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
+
  function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,18 +16,27 @@ import { signIn } from 'next-auth/react';
   setLoading(true);
 
   try {
-    const res = await fetch('http://localhost:8080/api/login', {
+    const res = await fetch('http://localhost:8080/api/auth/login', {
       method: 'POST',
-       credentials: 'include', 
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      credentials: 'include', // This is crucial
       body: JSON.stringify({ email, password }),
     });
-
+  
+    if (!res.ok) {
+      throw new Error('Login failed');
+    }
+  
+    else{
+      window.location.href = '/dashboard';
+    }
     
   } catch (error) {
-    setError('Something went wrong. Please try again.');
+    alert("error")
   }
-
   setLoading(false);
 };
 
@@ -59,39 +69,13 @@ return(<div className="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 disabled:opacity-60"
+            className="w-full bg-yellow-600 text-white py-2 rounded-lg font-semibold hover:bg-gray-700 transition duration-300 disabled:opacity-60"
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
-        <div className="relative my-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t" />
-          </div>
-          <div className="relative text-center">
-            <span className="bg-white px-2 text-gray-500 text-sm">OR</span>
-          </div>
-        </div>
-
-        <button
-          onClick={() => signIn('google')}
-          className="w-full border border-gray-300 rounded-lg flex items-center justify-center py-2 hover:shadow transition duration-300"
-        >
-          <img
-            src="https://www.svgrepo.com/show/475656/google-color.svg"
-            alt="Google logo"
-            className="w-5 h-5 mr-2"
-          />
-          <span className="text-gray-700 font-medium">Continue with Google</span>
-        </button>
-
-        <p className="text-sm text-center text-gray-600 mt-6">
-          Don’t have an account?{' '}
-          <a href="/register" className="text-indigo-600 hover:underline font-semibold">
-            Register here
-          </a>
-        </p>
+        
       </div>);
 }
 

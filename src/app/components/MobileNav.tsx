@@ -1,6 +1,10 @@
+import Image from 'next/image';
 import Link from 'next/link';
-
-const MobileNav = ({ isOpen, toggleMenu }) => {
+interface MobileNavProps {
+  isOpen: boolean;
+  toggleMenu: () => void;
+}
+const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
   return (
     <div className={`fixed inset-0 bg-white z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
       <div className="container mx-auto px-4 py-8">
@@ -70,7 +74,7 @@ const MobileNav = ({ isOpen, toggleMenu }) => {
               </svg>
             </span>
             <div className="flex items-center gap-2">
-              <img src="https://flagcdn.com/w20/ke.png" alt="Kenya" className="w-6 h-4" />
+              <Image src="https://flagcdn.com/w20/ke.png" width={1}height={2} alt="Kenya" className="w-6 h-4" />
               <span className="text-lg">+254 700 123456</span>
             </div>
           </div>

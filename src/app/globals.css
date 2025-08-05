@@ -52,3 +52,35 @@ body {
 /* Hide scrollbars for all browsers */
 .marquee-container::-webkit-scrollbar { display: none; }
 .marquee-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+  @keyframes pan {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  /* Custom animations */
+  @layer utilities {
+    .animation-delay-100 {
+      animation-delay: 0.1s;
+    }
+    .animation-delay-200 {
+      animation-delay: 0.2s;
+    }
+  }

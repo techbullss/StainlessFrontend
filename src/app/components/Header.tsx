@@ -2,9 +2,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import MobileNav from './MobileNav';
+import { useAuth } from './AuthContext';
 export default function Header(){
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+    const { isAuthenticated, logout } = useAuth()
     const toggleMobileMenu = () => {
       setIsMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -70,7 +71,7 @@ return(
     </li>
     <li className="relative group">
       <Link 
-        href="" 
+        href="AboutUs" 
         className="hover:text-yellow-600 transition relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
       >
         About
@@ -78,20 +79,31 @@ return(
     </li>
     <li className="relative group">
       <Link 
-        href="" 
+        href="ContactUs" 
         className="hover:text-yellow-600 transition relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
       >
         Contact
       </Link>
     </li>
-    <li className="relative group">
-      <Link 
-        href="/Login" 
-        className="hover:text-yellow-600 transition relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
-      >
-        Login
-      </Link>
-    </li>
+    {!isAuthenticated ? (
+            <li className="relative group">
+              <Link 
+                href="/Login" 
+                className="hover:text-yellow-600 transition relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Login
+              </Link>
+            </li>
+          ) : (
+            <li className="relative group">
+              <button
+                onClick={logout}
+                className="hover:text-yellow-600 transition relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Logout
+              </button>
+            </li>
+          )}
   </ul>
 </nav>
 <MobileNav isOpen={isMobileMenuOpen} toggleMenu={toggleMobileMenu} />

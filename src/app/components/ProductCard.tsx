@@ -1,12 +1,14 @@
+"use client"
 import { useState } from 'react';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 import DeleteConfirmationModal from './DeleteConfirmationModal';
+import Image from 'next/image';
 
 interface Product {
   id: number;
   name: string;
-  images: string[];
+  imageUrls: string[];
   size: string;
   color: string;
   price: number;
@@ -26,9 +28,13 @@ export default function ProductCard({ product, onEdit, onDelete }: ProductCardPr
     <>
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="relative h-48 bg-gray-100">
-          <img 
-            src={product.images[0] || '/placeholder-product.jpg'} 
+          <Image 
+            src={product.imageUrls[0] } 
             alt={product.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  
+  unoptimized={true}
             className="w-full h-full object-cover"
           />
         </div>

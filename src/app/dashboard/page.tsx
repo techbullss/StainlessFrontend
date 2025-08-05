@@ -1,75 +1,77 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PlusIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import ProductCard from '../components/ProductCard';
 import EditProductModal from '../components/EditProductModal';
+import AddProductModal from '../components/AddProductModal';
+import router from 'next/router';
 
 interface Product {
   id: number;
   name: string;
-  images: string[];
+  imageUrls: string[];
   size: string;
   color: string;
   price: number;
   usedFor: string;
 }
-
+interface Order{
+  name:string;
+  id:string,
+  email:string
+}
 export default function DashboardHome() {
-  const [products, setProducts] = useState<Product[]>([
-    {
-      id: 1,
-      name: 'Stainless Steel Sheet',
-      images: ['/table.jpeg'],
-      size: '2x4 ft',
-      color: 'Silver',
-      price: 45.99,
-      usedFor: 'Kitchen countertops'
-    },
-    {
-      id: 2,
-      name: 'Steel Pipe',
-      images: ['/tank.jpeg'],
-      size: '1 inch diameter',
-      color: 'Black',
-      price: 12.50,
-      usedFor: 'Plumbing'
-    },
-    {
-        id: 2,
-        name: 'Steel Pipe',
-        images: ['/tank.jpeg'],
-        size: '1 inch diameter',
-        color: 'Black',
-        price: 12.50,
-        usedFor: 'Plumbing'
-      },{
-        id: 2,
-        name: 'Steel Pipe',
-        images: ['/tank.jpeg'],
-        size: '1 inch diameter',
-        color: 'Black',
-        price: 12.50,
-        usedFor: 'Plumbing'
-      },
-      {
-        id: 2,
-        name: 'Steel Pipe',
-        images: ['/tank.jpeg'],
-        size: '1 inch diameter',
-        color: 'Black',
-        price: 12.50,
-        usedFor: 'Plumbing'
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
+ const[orders,setOrders]=useState<Order[]>([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/products',{headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+      credentials:'include'});
+        const res = await fetch('http://localhost:8080/api/orders',{
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          credentials:'include'
+        });
+        const dataOrder=await res.json();
+        setOrders(dataOrder)
+
+        if (!response.ok) throw new Error('Failed to fetch products');
+
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        setError(error instanceof Error ? error.message : 'An error occurred');
+        router.push('/Login');
       }
-  ]);
+      finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [router]);
   
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isaddModalOpen, setIsaddModalOpen] = useState(false);
 
   const handleEdit = (product: Product) => {
     setEditingProduct(product);
     setIsEditModalOpen(true);
+  };
+  const handleAdd = () => {
+ 
+    setIsaddModalOpen(true);
   };
 
   const handleSave = (updatedProduct: Product) => {
@@ -86,7 +88,8 @@ export default function DashboardHome() {
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     product.usedFor.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  if (loading) return <div>Loading dashboard...</div>;
+  if (error) return <div>Error: {error}</div>;
   return (
     <div className="text-gray-800 p-4 md:p-8">
       {/* Stats Section */}
@@ -98,11 +101,12 @@ export default function DashboardHome() {
         
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-medium">Total Orders</h3>
-          <p className="text-3xl font-bold">18</p>
+          <p className="text-3xl font-bold">{orders.length}</p>
         </div>
         
         <div className="bg-white p-6 rounded-lg shadow flex items-center justify-center">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center gap-2">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center gap-2"
+          onClick={handleAdd}>
             <PlusIcon className="h-5 w-5" />
             Add New Item
           </button>
@@ -143,6 +147,14 @@ export default function DashboardHome() {
           product={editingProduct}
           onClose={() => setIsEditModalOpen(false)}
           onSave={handleSave}
+        />
+      )}
+      {isaddModalOpen && (
+        <AddProductModal
+          isOpen={isaddModalOpen}
+          
+          onClose={() => setIsaddModalOpen(false)}
+          
         />
       )}
     </div>

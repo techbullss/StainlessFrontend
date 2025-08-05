@@ -1,8 +1,16 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
+interface Product {
+  id: number;
+  name: string;
+  imageUrls: string[];
+  price: number;
+  size: string;
+  color: string;
+}
 
 interface DeleteConfirmationModalProps {
   isOpen: boolean;
-  product: any;
+  product:Product|null;
   onClose: () => void;
   onConfirm: () => void;
 }
@@ -29,10 +37,10 @@ export default function DeleteConfirmationModal({
           <div className="mb-6">
             <p className="mb-2">Are you sure you want to delete this product?</p>
             <div className="bg-gray-100 p-4 rounded-md">
-              <h3 className="font-medium">{product.name}</h3>
-              <p className="text-sm text-gray-600">Size: {product.size}</p>
-              <p className="text-sm text-gray-600">Color: {product.color}</p>
-              <p className="text-sm text-gray-600">Price: ${product.price}</p>
+              <h3 className="font-medium">{product?.name}</h3>
+              <p className="text-sm text-gray-600">Size: {product?.size}</p>
+              <p className="text-sm text-gray-600">Color: {product?.color}</p>
+              <p className="text-sm text-gray-600">Price: ${product?.price}</p>
             </div>
             <p className="mt-2 text-red-600">This action cannot be undone.</p>
           </div>
