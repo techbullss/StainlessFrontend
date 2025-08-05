@@ -38,7 +38,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     }
   
     try {
-      const response = await fetch("http://localhost:8080/api/orders", {
+      const response = await fetch("https://stainlessbackend-4.onrender.com/api/orders", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8080/api/products/${productId}`);
+        const response = await fetch(`https://stainlessbackend-4.onrender.com/api/products/${productId}`);
         
         if (!response.ok) {
           throw new Error('Product not found');

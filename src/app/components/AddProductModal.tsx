@@ -74,9 +74,10 @@ export default function AddProductModal({ isOpen, onClose }: { isOpen: boolean, 
         formData.append('images', image);
       });
       console.log("productData.images", productData.images);
-      const response = await fetch("http://localhost:8080/api/products", {
+      const response = await fetch("https://stainlessbackend-4.onrender.com/api/products", {
         method: "POST",
-        body: formData
+        body: formData,
+        credentials:'include'
       });
     
       if (!response.ok) {
