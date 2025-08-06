@@ -97,10 +97,11 @@ return(
           ) : (
             <li className="relative group">
               <button
-                onClick={logout}
                 className="hover:text-yellow-600 transition relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
               >
-                Logout
+                <Link href={"/dashboard"}>
+                Dashboard
+                </Link>
               </button>
             </li>
           )}
