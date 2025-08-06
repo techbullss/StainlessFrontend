@@ -19,7 +19,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const checkAuth = async () => {
     try {
       const response = await fetch('https://stainlessbackend-5.onrender.com/api/auth/validate', {
-        credentials: 'include',
+        credentials: 'include'
       })
       setIsAuthenticated(response.ok)
     } catch (error) {
@@ -35,7 +35,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         credentials: 'include',
       })
       setIsAuthenticated(false)
-      router.push('/login')
+      router.push('/Login')
     } catch (error) {
       console.error('Logout failed:', error)
     }
