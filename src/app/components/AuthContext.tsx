@@ -18,7 +18,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch('https://stainlessbackend-4.onrender.com/api/auth/validate', {
+      const response = await fetch('https://stainlessbackend-5.onrender.com/api/auth/validate', {
         credentials: 'include',
       })
       setIsAuthenticated(response.ok)
@@ -30,7 +30,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      await fetch('https://stainlessbackend-4.onrender.com/api/auth/logout', {
+      await fetch('https://stainlessbackend-5.onrender.com/api/auth/logout', {
         method: 'POST',
         credentials: 'include',
       })

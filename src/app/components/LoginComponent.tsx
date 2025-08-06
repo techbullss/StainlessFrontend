@@ -1,28 +1,23 @@
 "use client"
-
-
 import { useState } from 'react';
-
  function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-
-
  const handleEmailLogin = async (e: React.FormEvent) => {
   e.preventDefault();
   setError(null);
   setLoading(true);
 
   try {
-    const res = await fetch('http://localhost:8080/api/auth/login', {
+    const res = await fetch('https://stainlessbackend-5.onrender.com/api/auth/login', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      credentials: 'include', // This is crucial
+      credentials: 'include', 
       body: JSON.stringify({ email, password }),
     });
   
@@ -31,6 +26,7 @@ import { useState } from 'react';
     }
   
     else{
+    
       window.location.href = '/dashboard';
     }
     

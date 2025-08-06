@@ -22,7 +22,7 @@ export default function OrdersDashboard() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('https://stainlessbackend-4.onrender.com/api/orders',{
+        const response = await fetch('https://stainlessbackend-5.onrender.com/api/orders',{
     
           credentials:'include'
         });

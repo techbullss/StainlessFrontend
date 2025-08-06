@@ -24,7 +24,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/products');
+        const response = await fetch('https://stainlessbackend-5.onrender.com/api/products');
         if (!response.ok) throw new Error('Failed to fetch products');
 
         const data = await response.json();
@@ -73,7 +73,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-grey-100 gap-4">
         {filteredProducts.map((product) => (
           <OurProductCard
             key={product.id}
