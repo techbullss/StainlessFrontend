@@ -23,7 +23,7 @@ export default function UsersPage() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('https://stainlessbackend-4.onrender.com/api/users',{
+        const response = await fetch('https://stainlessbackend-5.onrender.com/api/users',{
           headers: { 'Content-Type': 'application/json' },
           credentials:'include',
         });

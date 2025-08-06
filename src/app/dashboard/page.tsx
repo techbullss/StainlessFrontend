@@ -29,12 +29,12 @@ export default function DashboardHome() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://stainlessbackend-4.onrender.com/api/products',{headers: { 
+        const response = await fetch('https://stainlessbackend-5.onrender.com/api/products',{headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
       credentials:'include'});
-        const res = await fetch('https://stainlessbackend-4.onrender.com/api/orders',{
+        const res = await fetch('https://stainlessbackend-5.onrender.com/api/orders',{
           headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
