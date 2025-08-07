@@ -47,7 +47,7 @@ const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
           </li>
           <li>
             <Link 
-              href="ContactUs" 
+              href="/ContactUs" 
               className="hover:text-yellow-600 text-xl block py-2"
               onClick={toggleMenu}
             >
