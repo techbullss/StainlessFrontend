@@ -20,7 +20,7 @@ const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
         <ul className="flex flex-col gap-6 font-medium mb-8 mt-12">
           <li>
             <Link 
-              href="#about" 
+              href="/" 
               className="hover:text-yellow-600 text-xl block py-2"
               onClick={toggleMenu}
             >
@@ -29,7 +29,7 @@ const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
           </li>
           <li>
             <Link 
-              href="#products" 
+              href="/Ourproduct" 
               className="hover:text-yellow-600 text-xl block py-2"
               onClick={toggleMenu}
             >
@@ -38,7 +38,7 @@ const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
           </li>
           <li>
             <Link 
-              href="#about" 
+              href="/AboutUS" 
               className="hover:text-yellow-600 text-xl block py-2"
               onClick={toggleMenu}
             >
@@ -47,7 +47,7 @@ const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
           </li>
           <li>
             <Link 
-              href="#contact" 
+              href="ContactUs" 
               className="hover:text-yellow-600 text-xl block py-2"
               onClick={toggleMenu}
             >
@@ -56,7 +56,7 @@ const MobileNav = ({ isOpen, toggleMenu }:MobileNavProps) => {
           </li>
           <li>
             <Link 
-              href="#login" 
+              href="/Login" 
               className="hover:text-yellow-600 text-xl block py-2"
               onClick={toggleMenu}
             >
