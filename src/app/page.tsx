@@ -186,7 +186,7 @@ export default function Home() {
               className="text-center mt-14"
             >
               <button className="px-8 py-3 bg-yellow-800 hover:bg-black text-white font-medium rounded-full shadow-lg transition-all duration-300 hover:shadow-blue-500/30 flex items-center mx-auto">
-                Explore More Products
+              <a href="/Ourproduct">Explore More Products</a> 
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
