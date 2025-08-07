@@ -14,7 +14,7 @@ const projects = [
   {
     id: 2,
     title: "Stainless Steel Sink",
-    image: "/table.jpeg",
+    image: "/table4.png",
     description: "Commercial-grade stainless steel tables with hygienic surfaces and durable construction."
   },
   {
