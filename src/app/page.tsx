@@ -4,6 +4,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from 'framer-motion';
+import { Link } from "lucide-react";
 const projects = [
   {
     id: 1,
@@ -65,18 +66,18 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="#contact"
+              <Link
+                href="/ContactUs"
                 className="inline-block bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 Contact Us
-              </a>
-              <a
-                href="#services"
+              </Link>
+              < Link
+                href="/Ourproduct"
                 className="inline-block border-2 border-white hover:border-yellow-400 text-white hover:text-yellow-400 font-bold px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 View Our Work
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -186,7 +187,7 @@ export default function Home() {
               className="text-center mt-14"
             >
               <button className="px-8 py-3 bg-yellow-800 hover:bg-black text-white font-medium rounded-full shadow-lg transition-all duration-300 hover:shadow-blue-500/30 flex items-center mx-auto">
-                Explore More Products
+                <Link href="/Ourproduct">Explore More Products</Link>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>

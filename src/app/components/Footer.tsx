@@ -1,5 +1,7 @@
 "use client"
 
+import WhatsAppButton from "./WhatsAppButton"
+
 export default function Footer(){
   return(
    <footer className="bg-gray-900 text-gray-300 pt-12 pb-6">
@@ -137,6 +139,7 @@ export default function Footer(){
        </div>
      </div>
    </div>
+   <WhatsAppButton />
  </footer>
     )
 }
