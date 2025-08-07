@@ -9,19 +9,19 @@ const projects = [
     id: 1,
     title: "Shower Rooms",
     image: "/Shower.jpeg",
-    description: "Hygienic, energy-efficient cold storage solutions for food, pharma, and industrial use."
+    description: ""
   },
   {
     id: 2,
     title: "Stainless Steel Sink",
     image: "/table.jpeg",
-    description: "Commercial-grade stainless steel tables with hygienic surfaces and durable construction."
+    description: ""
   },
   {
     id: 3,
     title: "Stainless Cooker",
     image: "/cooker.jpeg",
-    description: "Secure, climate-controlled server environments with optimal airflow and cable management."
+    description: ""
   },
   {
     id: 4,
