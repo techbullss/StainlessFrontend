@@ -15,13 +15,13 @@ const projects = [
     id: 2,
     title: "Stainless Steel Sink",
     image: "/table.jpeg",
-    description: ""
+    description: "Commercial-grade stainless steel tables with hygienic surfaces and durable construction."
   },
   {
     id: 3,
     title: "Stainless Cooker",
     image: "/cooker.jpeg",
-    description: ""
+    description: "Secure, climate-controlled server environments with optimal airflow and cable management."
   },
   {
     id: 4,
@@ -154,7 +154,7 @@ export default function Home() {
                 whileHover={{ scale: 1.02 }}
                 className="group relative  rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 will-change-transform"
                 >
-                  <div className="relative  overflow-hidden">
+                  <div className="relative h-48 overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
