@@ -63,12 +63,12 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed md:relative z-40
-        w-64 h-full  bg-white shadow-lg p-5 space-y-6
-        transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-        md:translate-x-0 transition-transform duration-300 ease-in-out
-        h-full
-      `}>
+  fixed md:relative z-40
+  w-64 bg-white shadow-lg p-5 space-y-6
+  transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+  md:translate-x-0 transition-transform duration-300 ease-in-out
+  h-screen md:h-full
+`}>
         <h2 className="text-2xl font-bold text-indigo-600 mb-6">
           <Link href="/dashboard">Dashboard</Link>
         </h2>
