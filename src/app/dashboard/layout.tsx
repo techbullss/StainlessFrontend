@@ -7,7 +7,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
     <ProtectedRoute>
       <div className="flex min-h-screen bg-gray-100">
         {/* Sidebar - hidden on mobile by default, shown when toggled */}
-        <div className="h-screen w-64 bg-white">
+        <div className="md:h-screen md:w-64 md:bg-white">
         <Sidebar />
         </div>
     
