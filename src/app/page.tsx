@@ -14,13 +14,13 @@ const projects = [
   {
     id: 2,
     title: "Stainless Steel Sink",
-    image: "/table4.png",
+    image: "/table.jpeg",
     description: "Commercial-grade stainless steel tables with hygienic surfaces and durable construction."
   },
   {
     id: 3,
     title: "Stainless Cooker",
-    image: "/cooker2.png",
+    image: "/cooker.jpeg",
     description: "Secure, climate-controlled server environments with optimal airflow and cable management."
   },
   {
