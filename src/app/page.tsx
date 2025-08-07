@@ -158,7 +158,8 @@ export default function Home() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      fill
+                      width={300}
+                      height={400}
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
