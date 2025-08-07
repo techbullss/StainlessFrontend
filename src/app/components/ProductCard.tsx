@@ -43,7 +43,7 @@ export default function ProductCard({ product, onEdit, onDelete }: ProductCardPr
           <h3 className="text-lg font-medium mb-1">{product.name}</h3>
           <p className="text-gray-600 text-sm mb-2">Size: {product.size}</p>
           <p className="text-gray-600 text-sm mb-2">Color: {product.color}</p>
-          <p className="text-gray-600 text-sm mb-2">Price: ${product.price}</p>
+          <p className="text-gray-600 text-sm mb-2">Price: KSH {product.price}</p>
           
           <div className="mt-4 flex justify-end space-x-2">
             <button 

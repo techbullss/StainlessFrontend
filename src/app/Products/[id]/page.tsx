@@ -207,7 +207,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <div className="lg:col-span-2">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
           <div className="flex items-center mb-6">
-            <span className="text-2xl font-bold text-blue-600">${product.price}</span>
+            <span className="text-2xl font-bold text-blue-600">KSH{product.price}</span>
           </div>
           
           <div className="mb-8">
