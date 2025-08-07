@@ -20,7 +20,7 @@ const projects = [
   {
     id: 3,
     title: "Stainless Cooker",
-    image: "/cooker.jpeg",
+    image: "/cooker2.png",
     description: "Secure, climate-controlled server environments with optimal airflow and cable management."
   },
   {
